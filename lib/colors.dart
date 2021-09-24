@@ -13,3 +13,7 @@ const kDefaultPadding = 20.0;
 const darkRed = Color(0xffbf2634);
 const lightPink = Color(0xffF8E7E9);
 const lightGreen = Color(0xffD6FBE0);
+
+
+const Color darkredForWhite = Color(0xffbf2634);
+const Color lightRedForDark = Color(0xffffcdd2);

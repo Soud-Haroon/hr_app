@@ -1,10 +1,13 @@
 // ignore_for_file: prefer_const_constructors, avoid_unnecessary_containers
 import 'package:flutter/material.dart';
 import 'package:hr_app/mainApp/mainProfile/Card/AboutCard.dart';
+import 'package:hr_app/mainApp/mainProfile/Card/AccountInfoCard.dart';
+import 'package:hr_app/mainApp/mainProfile/Card/EducationCard.dart';
+import 'package:hr_app/mainApp/mainProfile/Card/ExperienceCard.dart';
+import 'package:hr_app/mainApp/mainProfile/Card/Personal_Info_Card.dart';
 import 'package:hr_app/mainApp/mainProfile/Card/work_info_card.dart';
 
 import 'Card/skillsCard.dart';
-
 
 class MyProfileEdit extends StatelessWidget {
   const MyProfileEdit({Key? key}) : super(key: key);
@@ -21,16 +24,17 @@ class MyProfileEdit extends StatelessWidget {
             AboutCard(),
             WorkInfoCard(),
             SkillsCard(),
+            ExperienceCard(),
+            EducationCard(),
+            PersonalInfoCard(),
+            AccountInfoCard(),
+            SizedBox(height: 30),
           ],
         ),
       ),
     );
   }
 }
-
-
-
-
 
 //===============================================//
 class UpperPortion extends StatelessWidget {
@@ -57,7 +61,7 @@ class UpperPortion extends StatelessWidget {
                 fit: BoxFit.cover,
               )),
               child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 15 ),
+                padding: const EdgeInsets.symmetric(horizontal: 15),
                 child: Column(
                   // crossAxisAlignment: CrossAxisAlignment.center,
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -66,17 +70,26 @@ class UpperPortion extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Row(children: [
-                          IconButton(onPressed: (){}, icon: Icon(Icons.arrow_back_ios, color: Colors.white)),
-                          Text('Profile', style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold)),
+                            IconButton(
+                                onPressed: () {},
+                                icon: Icon(Icons.arrow_back_ios,
+                                    color: Colors.white)),
+                            Text('Profile',
+                                style: TextStyle(
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.bold)),
                           ]),
                           Icon(Icons.notifications, color: Colors.white)
                         ]),
                     Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                      ProfilePic(),
-                      IconButton(onPressed: (){}, icon: Icon(Icons.edit_outlined,size: 30 ,color: Colors.white)),
-                    ]),
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          ProfilePic(),
+                          IconButton(
+                              onPressed: () {},
+                              icon: Icon(Icons.edit_outlined,
+                                  size: 30, color: Colors.white)),
+                        ]),
                   ],
                 ),
               ),
@@ -92,7 +105,6 @@ class UpperPortion extends StatelessWidget {
             child: Container(
               height: 60,
               decoration: BoxDecoration(
-                
                 borderRadius: BorderRadius.only(
                   topLeft: Radius.circular(30),
                   topRight: Radius.circular(30),
@@ -102,13 +114,11 @@ class UpperPortion extends StatelessWidget {
             ),
           ),
           //-------------mainWhite--end-Back-of-CenterCard----------//
-
         ],
       ),
     );
   }
 }
-
 
 //====================================================//
 
@@ -133,7 +143,9 @@ class ProfilePic extends StatelessWidget {
           ),
           SizedBox(width: 20),
           Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-            Text('Name Here', style: TextStyle(fontWeight: FontWeight.bold, color: Colors.white)),
+            Text('Name Here',
+                style: TextStyle(
+                    fontWeight: FontWeight.bold, color: Colors.white)),
             SizedBox(height: 10),
             Text('Front-End UI', style: TextStyle(color: Colors.white)),
           ]),

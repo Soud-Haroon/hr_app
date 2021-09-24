@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hr_app/mainApp/notifications/main_notification.dart';
 
 import '../colors.dart';
 
@@ -33,10 +34,10 @@ AppBar buildMyAppBar(BuildContext context, String name, bool turn ) {
                 : Colors.grey,
           ),
           onPressed: () {
-            // Navigator.push(
-            //               context,
-            //               MaterialPageRoute(
-            //                   builder: (context) => MainNotification()));
+            Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => MainNotification()));
           },
         )
     ],

@@ -1,12 +1,11 @@
 // ignore_for_file: file_names
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import '../../../colors.dart';
 
-class WorkInfoCard extends StatelessWidget {
-  const WorkInfoCard({Key? key}) : super(key: key);
+class AccountInfoCard extends StatelessWidget {
+  const AccountInfoCard({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -22,64 +21,22 @@ class WorkInfoCard extends StatelessWidget {
           child: Column(
             children: [
               Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
-                Text('Work Info',
+                const Text('Account Info',
                     style:
                         TextStyle(fontWeight: FontWeight.bold, color: darkRed)),
                 IconButton(
                     onPressed: () {},
-                    icon: Icon(Icons.edit_outlined, color: Colors.grey)),
+                    icon: const Icon(Icons.edit_outlined, color: Colors.grey)),
               ]),
-              Row(children: [
-                Text('Employee Type: '),
-                Text('Full Time', style: TextStyle(color: Colors.grey)),
-              ]),
-              const SizedBox(height: 6),
-              //
-              Row(children: [
-                Text('Office Timing: '),
-                Text('9 - 6 Morning', style: TextStyle(color: Colors.grey)),
+              Row(children: const [
+                Text('Bank Name: '),
+                Text('Alfla Bank', style: TextStyle(color: Colors.grey)),
               ]),
               const SizedBox(height: 6),
               //
-              Row(children: [
-                Text('Designation: '),
-                Text('UI UX Design', style: TextStyle(color: Colors.grey)),
-              ]),
-              const SizedBox(height: 6),
-              //
-              Row(children: [
-                Text('Role: '),
-                Text('UI UX', style: TextStyle(color: Colors.grey)),
-              ]),
-              const SizedBox(height: 6),
-              //
-              Row(children: [
-                Text('Department: '),
-                Text('App Design', style: TextStyle(color: Colors.grey)),
-              ]),
-              const SizedBox(height: 6),
-              //
-              Row(children: [
-                Text('Reporting to: '),
-                Text('Soud Haroon', style: TextStyle(color: Colors.grey)),
-              ]),
-              const SizedBox(height: 6),
-              //
-              Row(children: [
-                Text('Phone: '),
-                Text('03244094880', style: TextStyle(color: Colors.grey)),
-              ]),
-              const SizedBox(height: 6),
-              //
-              Row(children: [
-                Text('Date Joining: '),
-                Text('2 Aug 2021', style: TextStyle(color: Colors.grey)),
-              ]),
-              const SizedBox(height: 6),
-              //
-              Row(children: [
-                Text('Location: '),
-                Text('Alchemative', style: TextStyle(color: Colors.grey)),
+              Row(children: const [
+                Text('Account No: '),
+                Text('1348941324981', style: TextStyle(color: Colors.grey)),
               ]),
               const SizedBox(height: 15),
             ],

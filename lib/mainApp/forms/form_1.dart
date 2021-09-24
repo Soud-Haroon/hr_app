@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:hr_app/mainApp/mainProfile/my_profile_edit.dart';
+import 'package:hr_app/mainApp/bottom_navigation/bottom_nav_bar.dart';
 import 'package:hr_app/mainUtility/text_input_design.dart';
-import '../../colors.dart';
 
 enum Gender { male, female }
 
@@ -168,33 +167,33 @@ class _FormOneState extends State<FormOne> {
                 children: [
                   Row(
                     children: [
-                        Radio<Gender>(
-                          activeColor: darkRed,
-                          value: Gender.male,
-                          groupValue: gender,
-                          onChanged: (Gender? value) {
-                            setState(() {
-                              gender = value;
-                            });
-                          },
-                        ),
-                      const Text('Male'),  
+                      Radio<Gender>(
+                        activeColor: darkRed,
+                        value: Gender.male,
+                        groupValue: gender,
+                        onChanged: (Gender? value) {
+                          setState(() {
+                            gender = value;
+                          });
+                        },
+                      ),
+                      const Text('Male'),
                     ],
                   ),
                   //===================//
                   Row(
                     children: [
-                        Radio<Gender>(
-                          activeColor: darkRed,
-                          value: Gender.female,
-                          groupValue: gender,
-                          onChanged: (Gender? value) {
-                            setState(() {
-                              gender = value;
-                            });
-                          },
-                        ),
-                      const Text('Female'),  
+                      Radio<Gender>(
+                        activeColor: darkRed,
+                        value: Gender.female,
+                        groupValue: gender,
+                        onChanged: (Gender? value) {
+                          setState(() {
+                            gender = value;
+                          });
+                        },
+                      ),
+                      const Text('Female'),
                     ],
                   ),
                 ],
@@ -204,21 +203,21 @@ class _FormOneState extends State<FormOne> {
                 children: [
                   Expanded(
                     child: SizedBox(
-                          height: 60,
-                          child: ElevatedButton(
-                            child: const Text('Done'), //next button
-                            style: ElevatedButton.styleFrom(
-                              padding: const EdgeInsets.symmetric(vertical: 10),
-                              primary: darkRed,
-                              shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(10)),
-                            ),
-                            onPressed: () {
-                              Navigator.of(context)
-                              .push(MaterialPageRoute(builder: (context) => MyProfileEdit()));
-                            },
-                          ),
+                      height: 60,
+                      child: ElevatedButton(
+                        child: const Text('Done'), //next button
+                        style: ElevatedButton.styleFrom(
+                          padding: const EdgeInsets.symmetric(vertical: 10),
+                          primary: darkRed,
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(10)),
                         ),
+                        onPressed: () {
+                          Navigator.of(context).push(MaterialPageRoute(
+                              builder: (context) => NavBar(0)));
+                        },
+                      ),
+                    ),
                   ),
                 ],
               ),
