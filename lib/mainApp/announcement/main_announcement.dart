@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:hr_app/AppBar/appbar.dart';
 import 'package:hr_app/background/background.dart';
-import 'package:hr_app/mainApp/Announcement/utility/ListofData.dart';
+
+import 'utility/list_of_data.dart';
 
 
 class MainAnnouncement extends StatelessWidget {

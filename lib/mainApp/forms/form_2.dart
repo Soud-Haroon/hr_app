@@ -1,254 +1,298 @@
 import 'package:flutter/material.dart';
+import 'package:hr_app/mainUtility/text_input_design.dart';
+
+import '../../colors.dart';
+import 'form_1.dart';
 
 class FormTwo extends StatefulWidget {
+  const FormTwo({Key? key}) : super(key: key);
+
   @override
   _FormTwoState createState() => _FormTwoState();
 }
 
 class _FormTwoState extends State<FormTwo> {
   bool value = false;
-  var dropdownValue;
+  bool checkedValue = false;
+  var gender;
+  var dropGenderValue;
+  var dropCityValue;
   @override
   Widget build(BuildContext context) {
-    return Form(
-      child: Column(
-      children: [
+    return SingleChildScrollView(
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+        child: Form(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              const SizedBox(height: 35),
+              CircleAvatar(
+                backgroundColor: Colors.transparent,
+                radius: 50,
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(100),
+                  child: Image.asset("assets/user_image.png"),
+                ),
+              ),
+              const SizedBox(height: 35),
+              //--------------name-------------------//
+              TextFormField(
+                decoration: MyInputStyle('Name'),
+                autovalidateMode: AutovalidateMode.onUserInteraction,
+                validator: (value) {
+                  final pattern = ('[a-zA-Z]+([\s][a-zA-Z]+)*');
+                  final regExp = RegExp(pattern);
+                  if (value!.isEmpty) {
+                    return null;
+                  } else if (!regExp.hasMatch(value)) {
+                    return 'Enter only Alphabets';
+                  } else {
+                    return null;
+                  }
+                },
+              ),
+              const SizedBox(height: 15),
+              //--------------email-------------------//
+              TextFormField(
+                decoration: MyInputStyle('Email'),
+                autovalidateMode: AutovalidateMode.onUserInteraction,
+                validator: (value) {
+                  final pattern =
+                      (r'^.+@[a-zA-Z]+\.{1}[a-zA-Z]+(\.{0,1}[a-zA-Z]+)$');
+                  final regExp = RegExp(pattern);
 
-        //-----------------------------------------------//
-        TextFormField(
-          decoration: InputDecoration(
-              border: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(10),
-                borderSide: BorderSide(color: Colors.transparent, width: 0),
+                  if (value!.isEmpty) {
+                    return null;
+                  } else if (value.contains(' ')) {
+                    return 'can not have blank spaces';
+                  } else if (!regExp.hasMatch(value)) {
+                    return 'Enter a valid email';
+                  } else {
+                    return null;
+                  }
+                },
               ),
-              enabledBorder: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(10),
-                borderSide: BorderSide(color: Colors.transparent, width: 0),
+              const SizedBox(height: 15),
+              //--------------phone-------------------//
+              TextFormField(
+                decoration: MyInputStyle('Phone'),
+                keyboardType: TextInputType.number,
+                validator: (value) {
+                  final regExp = RegExp('[0-9]');
+                  if (value!.isEmpty) {
+                    return null;
+                  } else if (!regExp.hasMatch(value)) {
+                    return 'Enter only number';
+                  } else {
+                    return null;
+                  }
+                },
               ),
-              contentPadding:
-                  EdgeInsets.symmetric(horizontal: 20, vertical: 20),
-              filled: true,
-              fillColor: Colors.white,
-              hintText: 'Title',
-              hintStyle: TextStyle(
-                fontSize: 14,
-                fontWeight: FontWeight.w400,
-              )),
-              autovalidateMode: AutovalidateMode.onUserInteraction,
-                  validator: (value) {
-                    final pattern = ('[a-zA-Z]+([\s][a-zA-Z]+)*');
-                    final regExp = RegExp(pattern);
-                    if (value!.isEmpty) {
-                      return null;
-                    } else if (!regExp.hasMatch(value)) {
-                      return 'Enter only Alphabets';
-                    } else {
-                      return null;
-                    }
+              const SizedBox(height: 15),
+              //--------------City-------------------//
+              Container(
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(10),
+                  border: Border.all(
+                    color: Colors.grey.withOpacity(0.4),
+                    width: 1,
+                  ),
+                ),
+                child: DropdownButtonFormField(
+                  decoration: InputDecoration(
+                      border: const OutlineInputBorder(
+                        borderSide: BorderSide.none,
+                        borderRadius: BorderRadius.all(
+                          Radius.circular(10.0),
+                        ),
+                      ),
+                      hintStyle: TextStyle(color: Colors.grey.withOpacity(0.8)),
+                      hintText: "City",
+                      fillColor: Theme.of(context).scaffoldBackgroundColor),
+                  value: dropCityValue,
+                  items: <String>['Lahore', 'Karachi', 'Islamabad']
+                      .map<DropdownMenuItem<String>>((String value) {
+                    return DropdownMenuItem<String>(
+                      value: value,
+                      child: Text(value),
+                    );
+                  }).toList(),
+                  onChanged: (value) {
+                    setState(() {
+                      dropCityValue = value;
+                    });
                   },
-        ),
-        SizedBox(height: 15),
-        //-------------------------------------------------//
-        Container(
-          padding: EdgeInsets.all(8),
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(10),
-            color: Colors.white,
-          ),
-          child: DropdownButtonHideUnderline(
-            child: DropdownButton<String>(
-              value: dropdownValue,
-              icon: const Icon(Icons.keyboard_arrow_down),
-              elevation: 0,
-              isExpanded: true,
-              dropdownColor: Colors.white,
-              hint: Text(
-                'Employment Type',
-                style: TextStyle(color: Colors.grey),
+                ),
               ),
-              onChanged: (String? newValue) {
-                //   setState(() {
-                //     dropdownValue = newValue;
-                //   });
-              },
-              items: <String>['Male', 'Female', 'Other']
-                  .map<DropdownMenuItem<String>>((String value) {
-                return DropdownMenuItem<String>(
-                  value: value,
-                  child: Text(value),
-                );
-              }).toList(),
-            ),
-          ),
-        ),
-        SizedBox(height: 15),
-        //-------------------------------------------------//
-        TextFormField(
-          decoration: InputDecoration(
-              border: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(10),
-                borderSide: BorderSide(color: Colors.transparent, width: 0),
+              const SizedBox(height: 20),
+              //----------------gender-------------------//
+              Row(
+                children: [
+                  Row(
+                    children: [
+                      Radio<Gender>(
+                        activeColor: darkRed,
+                        value: Gender.male,
+                        groupValue: gender,
+                        onChanged: (Gender? value) {
+                          setState(() {
+                            gender = value;
+                          });
+                        },
+                      ),
+                      const Text('Male'),
+                    ],
+                  ),
+                  //===================//
+                  Row(
+                    children: [
+                      Radio<Gender>(
+                        activeColor: darkRed,
+                        value: Gender.female,
+                        groupValue: gender,
+                        onChanged: (Gender? value) {
+                          setState(() {
+                            gender = value;
+                          });
+                        },
+                      ),
+                      const Text('Female'),
+                    ],
+                  ),
+                ],
               ),
-              enabledBorder: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(10),
-                borderSide: BorderSide(color: Colors.transparent, width: 0),
-              ),
-              contentPadding:
-                  EdgeInsets.symmetric(horizontal: 20, vertical: 20),
-              filled: true,
-              fillColor: Colors.white,
-              hintText: 'Cpmpany Name',
-              hintStyle: TextStyle(
-                fontSize: 14,
-                fontWeight: FontWeight.w400,
-              )),
-              autovalidateMode: AutovalidateMode.onUserInteraction,
-                  validator: (value) {
-                    final pattern = ('[a-zA-Z]+([\s][a-zA-Z]+)*');
-                    final regExp = RegExp(pattern);
-                    if (value!.isEmpty) {
-                      return null;
-                    } else if (!regExp.hasMatch(value)) {
-                      return 'Enter only Alphabets';
-                    } else {
-                      return null;
-                    }
+              const SizedBox(height: 20),
+              //--------------marital-status-------------------//
+              Container(
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(10),
+                  border: Border.all(
+                    color: Colors.grey.withOpacity(0.4),
+                    width: 1,
+                  ),
+                ),
+                child: DropdownButtonFormField(
+                  decoration: InputDecoration(
+                      border: const OutlineInputBorder(
+                        borderSide: BorderSide.none,
+                        borderRadius: BorderRadius.all(
+                          Radius.circular(10.0),
+                        ),
+                      ),
+                      hintStyle: TextStyle(color: Colors.grey.withOpacity(0.8)),
+                      hintText: "Gender",
+                      fillColor: Theme.of(context).scaffoldBackgroundColor),
+                  value: dropGenderValue,
+                  items: <String>['Male', 'Female', 'Other']
+                      .map<DropdownMenuItem<String>>((String value) {
+                    return DropdownMenuItem<String>(
+                      value: value,
+                      child: Text(value),
+                    );
+                  }).toList(),
+                  onChanged: (value) {
+                    setState(() {
+                      dropGenderValue = value;
+                    });
                   },
-        ),
-        SizedBox(height: 15),
-        //-------------------------------------------------//
-        TextFormField(
-          decoration: InputDecoration(
-              border: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(10),
-                borderSide: BorderSide(color: Colors.transparent, width: 0),
+                ),
               ),
-              enabledBorder: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(10),
-                borderSide: BorderSide(color: Colors.transparent, width: 0),
+              const SizedBox(height: 15),
+              //--------------blood-group-------------------//
+              TextFormField(
+                decoration: MyInputStyle('Blood Group'),
+                autovalidateMode: AutovalidateMode.onUserInteraction,
+                validator: (value) {
+                  final pattern = ('[a-zA-Z]+([\s][a-zA-Z]+)*');
+                  final regExp = RegExp(pattern);
+                  if (value!.isEmpty) {
+                    return null;
+                  } else if (!regExp.hasMatch(value)) {
+                    return 'Enter only Alphabets';
+                  } else {
+                    return null;
+                  }
+                },
               ),
-              contentPadding:
-                  EdgeInsets.symmetric(horizontal: 20, vertical: 20),
-              filled: true,
-              fillColor: Colors.white,
-              hintText: 'Location',
-              hintStyle: TextStyle(
-                fontSize: 14,
-                fontWeight: FontWeight.w400,
-              )),
-              autovalidateMode: AutovalidateMode.onUserInteraction,
-                  validator: (value) {
-                    final pattern = ('[a-zA-Z]+([\s][a-zA-Z]+)*');
-                    final regExp = RegExp(pattern);
-                    if (value!.isEmpty) {
-                      return null;
-                    } else if (!regExp.hasMatch(value)) {
-                      return 'Enter only Alphabets';
-                    } else {
-                      return null;
-                    }
+              const SizedBox(height: 15),
+              //--------------CheckBox-------------------//
+              ListTile(
+                leading: Checkbox(
+                  value: checkedValue,
+                  activeColor: Color(0xff6036D8),
+                  onChanged: (newValue) {
+                    setState(() {
+                      checkedValue = newValue!;
+                    });
                   },
-        ),
-        SizedBox(height: 5),
-        //-------------------------------------------------//
-        Row(children: [
-          Expanded(
-              child: Container(
-            height: 60,
-            margin: EdgeInsets.symmetric(vertical: 10),
-            padding: EdgeInsets.all(10),
-            decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(10), color: Colors.white),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text('Start Birth', style: TextStyle(color: Colors.grey)),
-                IconButton(
-                    icon: Icon(Icons.today, color: Colors.grey),
-                    onPressed: () {
-                      showDatePicker(
-                          context: context,
-                          initialDate: DateTime(2005),
-                          firstDate: DateTime(2000),
-                          lastDate: DateTime.now());
-                    })
-              ],
-            ),
-          )),
-          SizedBox(width: 10),
-          Expanded(
-              child: Container(
-            height: 60,
-            margin: EdgeInsets.symmetric(vertical: 10),
-            padding: EdgeInsets.all(10),
-            decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(10), color: Colors.white),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text('End Birth', style: TextStyle(color: Colors.grey)),
-                IconButton(
-                    icon: Icon(Icons.today, color: Colors.grey),
-                    onPressed: () {
-                      showDatePicker(
-                          context: context,
-                          initialDate: DateTime(2005),
-                          firstDate: DateTime(2000),
-                          lastDate: DateTime.now());
-                    }),
-              ],
-            ),
-          )),
-        ]),
-        Theme(
-          data: ThemeData(
-            unselectedWidgetColor: Color(0xffbf2634),
-          ),
-          child: CheckboxListTile(
-            contentPadding: EdgeInsets.only(left: 0),
-            title: Text(
-              'I currently work in this role',
-              style: TextStyle(color: Colors.grey),
-            ),
-            value: value,
-            activeColor: Color(0xffbf2634),
-            onChanged: (bool? value) {
-              setState(() {
-                this.value = value!;
-              });
-            },
-            controlAffinity: ListTileControlAffinity.leading,
+                ),
+                title: const Text('Vaccinated against COVID'),
+              ),
+              const SizedBox(height: 15),
+              //--------------buttons-------------------//
+              Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  ElevatedButton(
+                      style: ElevatedButton.styleFrom(primary: Colors.grey),
+                      onPressed: () {},
+                      child: const Text('BROWSE')),
+                  const SizedBox(width: 25),
+                  GestureDetector(
+                      child: const Text("JPG Attachment",
+                          style: TextStyle(
+                              decoration: TextDecoration.underline,
+                              color: Colors.blue)),
+                      onTap: () {
+                        // do what you need to do when "Click here" gets clicked
+                      })
+                ],
+              ),
+              const SizedBox(height: 15),
+              //--------------CNIC-------------------//
+              TextFormField(
+                decoration: MyInputStyle('CNIC No.'),
+                keyboardType: TextInputType.number,
+                validator: (value) {
+                  final regExp = RegExp('/^[0-9]{5}-[0-9]{7}-[0-9]{1}/g');
+                  if (value!.isEmpty) {
+                    return null;
+                  } else if (!regExp.hasMatch(value)) {
+                    return 'Enter only number';
+                  } else {
+                    return null;
+                  }
+                },
+              ),
+              const SizedBox(height: 15),
+              //=============================//
+              Row(
+                children: [
+                  Expanded(
+                    child: SizedBox(
+                      height: 60,
+                      child: ElevatedButton(
+                        child: const Text('Done'), //next button
+                        style: ElevatedButton.styleFrom(
+                          padding: const EdgeInsets.symmetric(vertical: 10),
+                          primary: darkRed,
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(10)),
+                        ),
+                        onPressed: () {
+                          // Navigator.of(context).push(MaterialPageRoute(
+                          //     builder: (context) => NavBar(0)));
+                        },
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ],
           ),
         ),
-        TextFormField(
-          maxLines: 5,
-          decoration: InputDecoration(
-            hintText: 'Discription',
-            filled: true,
-            fillColor: Colors.white,
-            border: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(10),
-                borderSide: BorderSide(color: Colors.transparent)),
-            enabledBorder: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(10),
-                borderSide: BorderSide(
-                  color: Colors.transparent,
-                )),
-          ),
-          autovalidateMode: AutovalidateMode.onUserInteraction,
-                  validator: (value) {
-                    final pattern = ('[a-zA-Z]+([\s][a-zA-Z]+)*');
-                    final regExp = RegExp(pattern);
-                    if (value!.isEmpty) {
-                      return null;
-                    } else if (!regExp.hasMatch(value)) {
-                      return 'Enter only Alphabets';
-                    } else {
-                      return null;
-                    }
-                  },
-        ),
-      ],
-    ));
+      ),
+    );
   }
 }

@@ -1,17 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:hr_app/AppBar/appbar.dart';
 import 'package:hr_app/background/background.dart';
+import 'package:hr_app/mainApp/about/about.dart';
 import 'package:hr_app/mainApp/leave_management/leave_history/leave_history.dart';
+import 'package:hr_app/mainApp/work_info/work_info.dart';
 
 import 'Utility/leave_card.dart';
 
-
-  String text1 = 'Anual Leaves';
-  String text2 = 'Casual Leaves';
-  String text3 = 'Sick Leaves';
+String text1 = 'Anual Leaves';
+String text2 = 'Casual Leaves';
+String text3 = 'Sick Leaves';
 
 class LeaveManagement extends StatelessWidget {
-  const LeaveManagement({ Key? key }) : super(key: key);
+  const LeaveManagement({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -30,10 +31,10 @@ class LeaveManagement extends StatelessWidget {
                   alignment: Alignment.topRight,
                   child: TextButton(
                     onPressed: null,
-                    child: TextButton(               
+                    child: TextButton(
                       onPressed: () {
                         Navigator.of(context).push(MaterialPageRoute(
-                            builder: (context) => LeaveHistroy())); 
+                            builder: (context) => const LeaveHistory()));
                       },
                       child: const Text(
                         'Leaves History',
@@ -42,18 +43,25 @@ class LeaveManagement extends StatelessWidget {
                     ),
                   ),
                 ),
-                LeaveCard(text: text1, press: (){
-            //       Navigator.of(context)
-            // .push(MaterialPageRoute(builder: (context) => Experience()));
-                },),
-                LeaveCard(text: text2, press: (){
-            //                           Navigator.of(context)
-            // .push(MaterialPageRoute(builder: (context) => MainRequest()));
-                }),
-                LeaveCard(text: text3, press: (){
-            //                           Navigator.of(context)
-            // .push(MaterialPageRoute(builder: (context) => MyRequest()));
-                }),
+                LeaveCard(
+                  text: text1,
+                  press: () {
+                    Navigator.of(context).push(MaterialPageRoute(
+                        builder: (context) => const MainAbout()));
+                  },
+                ),
+                LeaveCard(
+                    text: text2,
+                    press: () {
+                      Navigator.of(context).push(MaterialPageRoute(
+                          builder: (context) => MyWorkInfo()));
+                    }),
+                LeaveCard(
+                    text: text3,
+                    press: () {
+                      //                           Navigator.of(context)
+                      // .push(MaterialPageRoute(builder: (context) => MyRequest()));
+                    }),
               ],
             ),
           ),

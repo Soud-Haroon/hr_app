@@ -13,9 +13,7 @@ class MainAbout extends StatelessWidget {
       body: Stack(
         children: [
           const BackgroundCircle(),
-          Container(
-            child: AboutCard(body),
-          ),
+          AboutCard(body),
         ],
       ),
     );
@@ -26,32 +24,25 @@ class MainAbout extends StatelessWidget {
 
 class AboutCard extends StatelessWidget {
   final String body;
-  AboutCard(this.body);
+  const AboutCard(this.body, {Key? key}) : super(key: key);
 
   //reuse but with changing
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+      padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 90),
       child: Container(
         padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 15),
         decoration: BoxDecoration(
-          borderRadius: BorderRadius.all(
+          borderRadius: const BorderRadius.all(
             Radius.circular(10),
           ),
           border: Border.all(color: Colors.grey.withOpacity(0.1), width: 2),
         ),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisSize: MainAxisSize.min,
           children: <Widget>[
-            // Text(
-            //   head,
-            //   style: TextStyle(
-            //     color: darkRed, //color red
-            //     fontWeight: FontWeight.bold,
-            //     fontSize: 17,
-            //   ),
-            // ),
             const SizedBox(
               height: 30.0,
             ),
@@ -61,14 +52,7 @@ class AboutCard extends StatelessWidget {
                 fontSize: 15,
               ),
             ),
-            const SizedBox(height: 50),
-            // Text(
-            //   date,
-            //   style: TextStyle(
-            //     fontSize: 10,
-            //     color: Colors.grey,
-            //   ),
-            // ),
+            const SizedBox(height: 40),
           ],
         ),
       ),

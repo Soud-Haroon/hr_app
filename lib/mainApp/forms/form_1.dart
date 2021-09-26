@@ -198,6 +198,7 @@ class _FormOneState extends State<FormOne> {
                   ),
                 ],
               ),
+              const SizedBox(height: 30),
               //=============================//
               Row(
                 children: [

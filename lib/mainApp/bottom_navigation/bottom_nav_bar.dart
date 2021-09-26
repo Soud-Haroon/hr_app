@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hr_app/mainApp/Announcement/main_announcement.dart';
+import 'package:hr_app/mainApp/Personal_Info/main_personal_info.dart';
 import 'package:hr_app/mainApp/leave_management/leave_management.dart';
 import 'package:hr_app/mainApp/mainProfile/my_profile_edit.dart';
 
@@ -24,7 +25,7 @@ class _NavBarState extends State<NavBar> {
     Center(child: MyProfileEdit()),
     Center(child: MainAnnouncement()),
     Center(child: LeaveManagement()),
-    Center(child: null),
+    Center(child: MainPersonal_Info()),
   ];
   @override
   Widget build(BuildContext context) {

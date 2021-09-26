@@ -23,7 +23,7 @@ class ExperienceCard extends StatelessWidget {
           child: Column(
             children: [
               Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
-                const Text('Experience',
+                const Text('experience',
                     style:
                         TextStyle(fontWeight: FontWeight.bold, color: darkRed)),
                 IconButton(
