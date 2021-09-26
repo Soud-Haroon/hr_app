@@ -1,6 +1,6 @@
 // import 'package:update_task01/cards/announCard.dart';
 // import 'package:update_task01/cards/birthCard.dart';
-// import 'package:update_task01/cards/eventCard.dart';
+// import 'package:update_task01/cards/home_event_card.dart';
 // import 'package:update_task01/cards/leaveCard.dart';
 // // import 'package:update_task01/cards/teamCard.dart';
 
@@ -48,4 +48,5 @@
 // ];
 
 //=====================================//
-String bodyText = 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s when an unknown printer took a galley of type and scrambled it to make a type specimen book';
+String bodyText =
+    'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s when an unknown printer took a galley of type and scrambled it to make a type specimen book';
