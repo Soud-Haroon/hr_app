@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hr_app/mainApp/settings/main_settings.dart';
 import 'package:hr_app/mainUtility/text_input_design.dart';
 
 import '../../colors.dart';
@@ -281,8 +282,8 @@ class _FormTwoState extends State<FormTwo> {
                               borderRadius: BorderRadius.circular(10)),
                         ),
                         onPressed: () {
-                          // Navigator.of(context).push(MaterialPageRoute(
-                          //     builder: (context) => NavBar(0)));
+                          Navigator.of(context).push(MaterialPageRoute(
+                              builder: (context) => const MainSettings()));
                         },
                       ),
                     ),

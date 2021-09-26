@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 import '../../../colors.dart';
 
 // ignore: must_be_immutable
@@ -31,7 +32,7 @@ class ChipsView extends StatelessWidget {
 
 //----------------Chip Maker-------------------------
 class Chips extends StatefulWidget {
-  static List<String> chipList = [];
+  static List<String> chipList = ['Adobe PhotoShop', 'Adobe XD', 'Figma'];
   @override
   _ChipsState createState() => _ChipsState();
 }

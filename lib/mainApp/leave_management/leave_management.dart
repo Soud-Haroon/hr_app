@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:hr_app/AppBar/appbar.dart';
 import 'package:hr_app/background/background.dart';
 import 'package:hr_app/mainApp/about/about.dart';
+import 'package:hr_app/mainApp/experiences/main_experiences.dart';
 import 'package:hr_app/mainApp/leave_management/leave_history/leave_history.dart';
 import 'package:hr_app/mainApp/work_info/work_info.dart';
 
@@ -54,13 +55,13 @@ class LeaveManagement extends StatelessWidget {
                     text: text2,
                     press: () {
                       Navigator.of(context).push(MaterialPageRoute(
-                          builder: (context) => MyWorkInfo()));
+                          builder: (context) => const MyWorkInfo()));
                     }),
                 LeaveCard(
                     text: text3,
                     press: () {
-                      //                           Navigator.of(context)
-                      // .push(MaterialPageRoute(builder: (context) => MyRequest()));
+                      Navigator.of(context).push(MaterialPageRoute(
+                          builder: (context) => const MainExperiences()));
                     }),
               ],
             ),
