@@ -30,7 +30,7 @@ class MainSettings extends StatelessWidget {
                 ]),
                 //=============================//
                 Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 20),
+                  padding: const EdgeInsets.symmetric(horizontal: 30),
                   child: GestureDetector(
                     onTap: () {},
                     child: Row(

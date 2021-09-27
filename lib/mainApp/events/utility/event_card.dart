@@ -4,9 +4,10 @@ import 'package:intl/intl.dart';
 
 // ignore: must_be_immutable
 class EventCard extends StatelessWidget {
-  EventCard({this.text, this.date, this.image});
+  EventCard({Key? key, this.text, this.date, this.image}) : super(key: key);
   String? text;
   String? image;
+  // ignore: prefer_typing_uninitialized_variables
   var date;
 
   @override

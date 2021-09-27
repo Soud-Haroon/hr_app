@@ -1,4 +1,7 @@
 import 'package:hr_app/mainApp/announcement/utility/ann_card.dart';
+import 'package:hr_app/mainApp/main_home_profile/utility/cards/birthCard.dart';
+import 'package:hr_app/mainApp/main_home_profile/utility/cards/home_event_card.dart';
+import 'package:hr_app/mainApp/main_home_profile/utility/cards/leaveCard.dart';
 
 List<AnnCard> annCardData = [
   AnnCard(
@@ -29,12 +32,12 @@ List<LeaveCard> leaveCardData = [
 ];
 
 // 4nd final EventCard Data
-List<EventCard> eventCardData = [
-  EventCard('31', 'Jun', 'This super Leogue lorem 2017', '16:04 20/10/2021',
+List<HomeEventCard> eventCardData = [
+  HomeEventCard('31', 'Jun', 'This super Leogue lorem 2017', '16:04 20/10/2021',
       'back_2'),
-  EventCard('30', 'Jul', 'This super Leogue lorem 2017', '16:04 20/10/2021',
+  HomeEventCard('30', 'Jul', 'This super Leogue lorem 2017', '16:04 20/10/2021',
       'back_1'),
-  EventCard('29', 'Aug', 'This super Leogue lorem 2017', '16:04 20/10/2021',
+  HomeEventCard('29', 'Aug', 'This super Leogue lorem 2017', '16:04 20/10/2021',
       'back_2'),
 ];
 

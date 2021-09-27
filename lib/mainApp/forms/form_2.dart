@@ -1,9 +1,11 @@
+// ignore_for_file: prefer_typing_uninitialized_variables, prefer_const_declarations
+
 import 'package:flutter/material.dart';
 import 'package:hr_app/mainApp/settings/main_settings.dart';
 import 'package:hr_app/mainUtility/text_input_design.dart';
 
 import '../../colors.dart';
-import 'form_1.dart';
+enum Gender { male, female }
 
 class FormTwo extends StatefulWidget {
   const FormTwo({Key? key}) : super(key: key);
@@ -13,7 +15,7 @@ class FormTwo extends StatefulWidget {
 }
 
 class _FormTwoState extends State<FormTwo> {
-  bool value = false;
+  // bool value = false;
   bool checkedValue = false;
   var gender;
   var dropGenderValue;
@@ -219,15 +221,15 @@ class _FormTwoState extends State<FormTwo> {
               const SizedBox(height: 15),
               //--------------CheckBox-------------------//
               ListTile(
-                leading: Checkbox(
-                  value: checkedValue,
-                  activeColor: Color(0xff6036D8),
-                  onChanged: (newValue) {
-                    setState(() {
-                      checkedValue = newValue!;
-                    });
-                  },
-                ),
+              leading: Checkbox(
+                value: checkedValue,
+                activeColor: const Color(0xff6036D8),
+                onChanged: (newValue) {
+                  setState(() {
+                    checkedValue = newValue!;
+                  });
+                },
+              ),
                 title: const Text('Vaccinated against COVID'),
               ),
               const SizedBox(height: 15),

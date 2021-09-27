@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_const_declarations
+
 import 'package:flutter/material.dart';
 import 'package:hr_app/mainApp/bottom_navigation/bottom_nav_bar.dart';
 import 'package:hr_app/mainUtility/text_input_design.dart';
@@ -14,6 +16,7 @@ class FormOne extends StatefulWidget {
 class _FormOneState extends State<FormOne> {
   // ignore: prefer_typing_uninitialized_variables
   var gender;
+  // ignore: prefer_typing_uninitialized_variables
   var dropdownValue;
   @override
   Widget build(BuildContext context) {
@@ -37,6 +40,7 @@ class _FormOneState extends State<FormOne> {
                 decoration: MyInputStyle('Your Name'),
                 autovalidateMode: AutovalidateMode.onUserInteraction,
                 validator: (value) {
+                  // ignore: prefer_const_declarations
                   final pattern = ('[a-zA-Z]+([\s][a-zA-Z]+)*');
                   final regExp = RegExp(pattern);
                   if (value!.isEmpty) {
@@ -48,7 +52,7 @@ class _FormOneState extends State<FormOne> {
                   }
                 },
               ),
-              SizedBox(height: 15),
+              const SizedBox(height: 15),
               //-------------------------------------------------//
               TextFormField(
                 decoration: MyInputStyle('Father Name'),
@@ -65,7 +69,7 @@ class _FormOneState extends State<FormOne> {
                   }
                 },
               ),
-              SizedBox(height: 15),
+              const SizedBox(height: 15),
               //-------------------------------------------------//
               TextFormField(
                 decoration: MyInputStyle('Email'),
@@ -86,7 +90,7 @@ class _FormOneState extends State<FormOne> {
                   }
                 },
               ),
-              SizedBox(height: 15),
+              const SizedBox(height: 15),
               //-------------------------------------------------//
               TextFormField(
                 decoration: MyInputStyle('Phone'),
@@ -102,10 +106,10 @@ class _FormOneState extends State<FormOne> {
                   }
                 },
               ),
-              SizedBox(height: 15),
+              const SizedBox(height: 15),
               //-------------------------------------------------//
               Container(
-                padding: EdgeInsets.all(8),
+                padding: const EdgeInsets.all(8),
                 decoration: BoxDecoration(
                   border:
                       Border.all(color: Colors.grey.withOpacity(0.4), width: 1),
@@ -134,7 +138,7 @@ class _FormOneState extends State<FormOne> {
                   ),
                 ),
               ),
-              SizedBox(height: 10),
+              const SizedBox(height: 10),
               //-------------------------------------------------//
               Container(
                 height: 60,

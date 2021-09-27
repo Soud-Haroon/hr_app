@@ -14,7 +14,7 @@ class AddEducation extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       extendBodyBehindAppBar: true,
-      appBar: buildMyAppBar(context, 'Add Experience', true),
+      appBar: buildMyAppBar(context, 'Add Education', true),
       body: Stack(
         children: [
           const BackgroundCircle(),

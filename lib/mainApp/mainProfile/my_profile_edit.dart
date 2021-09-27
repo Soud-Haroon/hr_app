@@ -1,5 +1,6 @@
 // ignore_for_file: prefer_const_constructors, avoid_unnecessary_containers
 import 'package:flutter/material.dart';
+// import 'package:hr_app/AppBar/appbar.dart';
 import 'package:hr_app/mainApp/mainProfile/Card/AboutCard.dart';
 import 'package:hr_app/mainApp/mainProfile/Card/AccountInfoCard.dart';
 import 'package:hr_app/mainApp/mainProfile/Card/EducationCard.dart';
@@ -15,6 +16,8 @@ class MyProfileEdit extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      // extendBodyBehindAppBar: true,
+      // appBar: buildMyAppBar(context, 'Profile', true),
       body: SingleChildScrollView(
         child: Column(
           children: const [
@@ -133,16 +136,16 @@ class ProfilePic extends StatelessWidget {
         child: Row(children: [
           SizedBox(width: 10),
           CircleAvatar(
-            radius: (60),
+            radius: (40),
             backgroundColor: Colors.transparent,
             child: ClipRRect(
               clipBehavior: Clip.antiAlias,
               borderRadius: BorderRadius.circular(100),
-              child: Image.asset("assets/jame.jpg", fit: BoxFit.fill),
+              child: Image.asset("assets/user_image.png"),
             ),
           ),
           SizedBox(width: 20),
-          Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+          Column(crossAxisAlignment: CrossAxisAlignment.start, children: const [
             Text('Name Here',
                 style: TextStyle(
                     fontWeight: FontWeight.bold, color: Colors.white)),
